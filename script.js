@@ -56,73 +56,75 @@ window.onload = function(){
         }else{
             m.innerHTML = mm[curMonth + 1];
             showDate(curYear,curMonth + 1);
+            console.log("asdasdasdsadasdsadsa")
         }
     }
 
 }
 
-var showDate = function(year,month){
+var showDate = function(year,month) {
     curYear = year;
     curMonth = month;
+    console.log(curYear + " " + curMonth);
 
-    var firstDayOfMonth = new Date(curYear,curMonth,1);
-    var lastDayOfMonth = new Date(curYear,curMonth + 1,0);
+    var firstDayOfMonth = new Date(curYear, curMonth, 1);
+    var lastDayOfMonth = new Date(curYear, curMonth + 1, 0);
     var blank = firstDayOfMonth.getDay();
 
     var i = 0;
     var div = document.getElementById("calendar-content");
-    var week = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var d = new Date().getDate();
 
-    if(month === 0 || month === 2 || month === 4 || month === 6 || month === 7 || month === 9 || month === 11){
+    if (month === 0 || month === 2 || month === 4 || month === 6 || month === 7 || month === 9 || month === 11) {
         i = 31;
-    }else if(month === 3 || month === 5 || month === 8 || month === 10){
+    } else if (month === 3 || month === 5 || month === 8 || month === 10) {
         i = 30;
-    }else if((year % 400 === 0) || (year % 100 !== 0 && year % 4 === 0)){
+    } else if ((year % 400 === 0) || (year % 100 !== 0 && year % 4 === 0)) {
         i = 29;
-    }else{
+    } else {
         i = 28;
     }
 
-
-    for(let j = 0; j < 7; j ++){
-        var node = document.createElement("DIV");
-        var textnode = document.createTextNode(week[j]);
-        node.appendChild(textnode);
-        node.className = "weekdays";
-        div.appendChild(node);
-    }
-
-    for(let j = 0; j < blank; j ++){
-        var node = document.createElement("DIV");
-        var textnode = document.createTextNode('');
-        node.appendChild(textnode);
-        node.className = "weekdays";
-        div.appendChild(node);
-    }
-
-    for(let j = 1; j <= i; j ++){
-        var node = document.createElement("DIV");
-        var textnode = document.createTextNode(j);
-        node.appendChild(textnode);
-        node.className = "weekdays";
-        div.appendChild(node);
-
-        if(j === d && curMonth == todayM && curYear == todayY){
-            //curr = j;
-            document.getElementsByClassName("weekdays")[j + 6 + blank].style.color = "yellow";
+        for (let j = 0; j < 7; j++) {
+            var node = document.createElement("DIV");
+            var textnode = document.createTextNode(week[j]);
+            node.appendChild(textnode);
+            node.className = "weekdays";
+            div.appendChild(node);
         }
-    }
+
+        for (let j = 0; j < blank; j++) {
+            var node = document.createElement("DIV");
+            var textnode = document.createTextNode('');
+            node.appendChild(textnode);
+            node.className = "weekdays";
+            div.appendChild(node);
+        }
+
+        for (let j = 1; j <= i; j++) {
+            var node = document.createElement("DIV");
+            var textnode = document.createTextNode(j);
+            node.appendChild(textnode);
+            node.className = "weekdays";
+            div.appendChild(node);
+
+            if (j === d && curMonth == todayM && curYear == todayY) {
+                document.getElementsByClassName("weekdays")[j + 6 + blank].style.color = "yellow";
+            }
+        }
 
 
-    document.querySelectorAll('.weekdays').forEach(day => {
-        day.addEventListener('click',()=>{
-            modal_container.classList.add('show');
+        document.querySelectorAll('.weekdays').forEach(day => {
+            day.addEventListener('click', () => {
+                console.log("aaaaaaaaaaaaaaaaaaa")
+                modal_container.classList.add('show');
+            })
         })
-    })
 
 
-    close.addEventListener('click',()=>{
-        modal_container.classList.remove('show');
-    })
+        close.addEventListener('click', () => {
+            modal_container.classList.remove('show');
+        })
+
 }
