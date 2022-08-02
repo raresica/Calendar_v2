@@ -22,8 +22,8 @@
 <div class="modal-container"
      id="modal_container">
     <div class="modal">
-        <h1>Date: </h1>
-        <p> <?php GetAccounts("first_name"); ?> </p>
+        <h1 id="modalTitle">Date:   </h1>
+        <p> <?php GetAccounts("Rares"); ?> </p>
 
 
         <button id="close">
@@ -35,7 +35,6 @@
 </html>
 
 <?php
-
 function GetAccounts($first_name){
     $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     $stmt = $pdo->prepare("SELECT * FROM user 
@@ -48,6 +47,5 @@ function GetAccounts($first_name){
     $row["first_name"];
     echo $row["first_name"];
 }
-
 
 ?>

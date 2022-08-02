@@ -115,9 +115,11 @@ var showDate = function (year, month) {
     }
 
 
+
     document.querySelectorAll('.weekdays').forEach(day => {
         day.addEventListener('click', () => {
             modal_container.classList.add('show');
+            document.getElementById('modalTitle').innerHTML += day.innerHTML + " " +mm[curMonth];
         })
     })
 

@@ -79,15 +79,10 @@ body{
     font-weight: 900;
 }
 button{
-    background-color: grey;
-    border: 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    color:whitesmoke;
-    padding: 10px 25px;
+
 }
 .modal-container{
-    background-color: darkgray;
+    background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     align-content: center;
     justify-content: center;
@@ -103,12 +98,17 @@ button{
 .modal-container.show{
     pointer-events: auto;
     opacity: 1;
+
 }
 .modal {
-    background-color: beige;
+    position: center;
+    background-color: lightcyan;
     padding: 30px 50px;
-    border-radius: 5px ;
-    width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 400px;
+    height: 300px;
+    max-height: 100%;
     max-width: 100%;
-
+    text-align: center;
 }
