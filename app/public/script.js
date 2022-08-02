@@ -114,15 +114,12 @@ var showDate = function (year, month) {
         }
     }
 
-
-
     document.querySelectorAll('.weekdays').forEach(day => {
         day.addEventListener('click', () => {
             modal_container.classList.add('show');
-            document.getElementById('modalTitle').innerHTML += day.innerHTML + " " +mm[curMonth];
+            document.getElementById('modalTitle').innerHTML = "Date: " + day.innerHTML + " " +mm[curMonth] + " " + curYear;
         })
     })
-
 
     close.addEventListener('click', () => {
         modal_container.classList.remove('show');

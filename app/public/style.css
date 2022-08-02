@@ -75,12 +75,14 @@ body{
     border: 2px dashed transparent;
 }
 
+
 .weekdays:hover{
     font-weight: 900;
 }
 button{
 
 }
+
 .modal-container{
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
@@ -102,7 +104,7 @@ button{
 }
 .modal {
     position: center;
-    background-color: lightcyan;
+    background-color: #95B6F3;
     padding: 30px 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 5px;

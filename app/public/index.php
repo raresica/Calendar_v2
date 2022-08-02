@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="script.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -22,12 +23,11 @@
 <div class="modal-container"
      id="modal_container">
     <div class="modal">
-        <h1 id="modalTitle">Date:   </h1>
-        <p> <?php GetAccounts("Rares"); ?> </p>
-
+        <h1 id="modalTitle"></h1>
+        <p> <?php GetAppointmentFromASpecificDate(); ?> </p>
 
         <button id="close">
-    Inchide
+            Inchide
         </button>
     </div>
 </div>
@@ -35,17 +35,15 @@
 </html>
 
 <?php
-function GetAccounts($first_name){
+function GetAppointmentFromASpecificDate(){
     $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-    $stmt = $pdo->prepare("SELECT * FROM user 
-         where user.first_name = :user_first_name");
-    $stmt->bindParam(':user_first_name',  $first_name);
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-    $row=$stmt->fetch();
-    $row["first_name"];
-    echo $row["first_name"];
+    $query = "SELECT * FROM appointments 
+    INNER JOIN user ON appointments.user_id = user.id   
+    WHERE appointments.reservation = '2022-08-04' ";
+    $result = $pdo->query($query);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    while($row = $result->fetch()){
+        echo "Dl/Dna ". $row['first_name']. " " . $row['last_name']. "</br>";
+    }
 }
-
 ?>
