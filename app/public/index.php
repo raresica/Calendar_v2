@@ -35,15 +35,17 @@
 </html>
 
 <?php
-function GetAppointmentFromASpecificDate(){
+function GetAppointmentFromASpecificDate()
+{
     $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     $query = "SELECT * FROM appointments 
     INNER JOIN user ON appointments.user_id = user.id   
-    WHERE appointments.reservation = '2022-08-04' ";
+    WHERE appointments.reservation = " . "'" . $_GET['date'] . "'";
     $result = $pdo->query($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
-    while($row = $result->fetch()){
-        echo "Dl/Dna ". $row['first_name']. " " . $row['last_name']. "</br>";
+    while ($row = $result->fetch()) {
+        echo "Dl/Dna " . $row['first_name'] . " " . $row['last_name'] . "</br>";
     }
 }
+
 ?>

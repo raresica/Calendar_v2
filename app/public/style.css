@@ -1,8 +1,8 @@
-body{
+body {
     background-color: #E6E4E4;
 }
 
-.calendar-content{
+.calendar-content {
     width: 600px;
     height: 600px;
     background: #c1dafa;
@@ -10,12 +10,12 @@ body{
     border-radius: 15px;
 }
 
-.calendar-header{
+.calendar-header {
     width: 100%;
     height: 80px;
     background: #95B6F3;
     font-size: 2em;
-    font-family: 'Microsoft YaHei',fantasy;
+    font-family: 'Microsoft YaHei', fantasy;
     color: #fff;
     text-align: center;
     overflow: hidden;
@@ -23,14 +23,14 @@ body{
     border-top-right-radius: 15px;
 }
 
-.calendar-header h2{
+.calendar-header h2 {
     padding-top: 15px;
     margin: 0;
     display: inline-block;
 
 }
 
-.calendar-header button{
+.calendar-header button {
     display: inline-block;
     background-color: #95B6F3;
     outline: none;
@@ -41,17 +41,17 @@ body{
     color: #ffffff;
 }
 
-.calendar-header #prev{
+.calendar-header #prev {
     float: left;
     padding-left: 20px;
 }
 
-.calendar-header #next{
+.calendar-header #next {
     float: right;
     padding-right: 20px;
 }
 
-#calendar-content{
+#calendar-content {
     width: 100%;
     height: 600px;
     background: #fff;
@@ -59,13 +59,13 @@ body{
     border-bottom-right-radius: 15px;
 }
 
-.weekdays{
+.weekdays {
     width: 85px;
     height: 85px;
     box-sizing: border-box;
     display: inline-block;
     color: #95B6F3;
-    font-family: 'SansSerif',fantasy;
+    font-family: 'SansSerif', fantasy;
     vertical-align: top;
     text-align: center;
     font-size: 1.8em;
@@ -76,14 +76,15 @@ body{
 }
 
 
-.weekdays:hover{
+.weekdays:hover {
     font-weight: 900;
 }
-button{
+
+button {
 
 }
 
-.modal-container{
+.modal-container {
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     align-content: center;
@@ -97,11 +98,13 @@ button{
     width: 100vw;
     transition: opacity 0.3s;
 }
-.modal-container.show{
+
+.modal-container.show {
     pointer-events: auto;
     opacity: 1;
 
 }
+
 .modal {
     position: center;
     background-color: #95B6F3;

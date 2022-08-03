@@ -113,16 +113,29 @@ var showDate = function (year, month) {
             document.getElementsByClassName("weekdays")[j + 6 + blank].style.color = "yellow";
         }
     }
-
+    var currentMonth = curMonth + 1;
     document.querySelectorAll('.weekdays').forEach(day => {
         day.addEventListener('click', () => {
-            modal_container.classList.add('show');
-            document.getElementById('modalTitle').innerHTML = "Date: " + day.innerHTML + " " +mm[curMonth] + " " + curYear;
+            window.location.search = 'date=' + curYear + "-" + currentMonth + "-" + day.innerHTML;
         })
     })
 
     close.addEventListener('click', () => {
         modal_container.classList.remove('show');
+        window.location.search = '';
     })
+    if (window.location.search != '') {
+        modal_container.classList.add('show');
+
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const date = urlParams.get('date');
+        const curMonth = date.split("-")[1];
+        console.log(curMonth);
+        const day = date.split("-")[2]
+        document.getElementById('modalTitle').innerHTML = "Date: " + day + " " + mm[curMonth - 1] + " " + curYear;
+
+
+    }
 
 }
